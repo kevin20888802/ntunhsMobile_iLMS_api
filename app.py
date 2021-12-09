@@ -10,7 +10,7 @@ import os
 from flask import Flask
 
 app = Flask(__name__)
-local_test = True
+local_test = False
 app.config["SESSION_PERMANENT"] = True
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(days=7)
 app.config["SESSION_TYPE"] = "filesystem"
