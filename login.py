@@ -43,6 +43,7 @@ def view():
         # 登入ilms
         driver = account_driver[username+"_ilms"]
         driver.get("https://ilms.ntunhs.edu.tw/")
+        print(driver.page_source)
         driver.find_element_by_id("login").click()
         driver.find_element_by_link_text(u"登入").click()
         driver.find_element_by_id("loginAccount").click()
@@ -51,7 +52,7 @@ def view():
         driver.find_element_by_id("loginPasswd").clear()
         driver.find_element_by_id("loginPasswd").send_keys(password)
         driver.find_element_by_xpath(u"//input[@value='確定']").click()
-
+        
         print("Login Finished : " + username)
         return "Login Finished : " + username,200
     except Exception as ex:
