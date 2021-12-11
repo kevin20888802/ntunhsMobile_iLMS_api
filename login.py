@@ -24,11 +24,11 @@ def view():
         #if not (username+"_eportfolio") in account_driver:
         #    account_driver[username+"_eportfolio"] = GetNewWebDriver()
         pass
-        if not (username+"_ilms") in account_driver:
-            account_driver[username+"_ilms"] = GetNewWebDriver()
+        if (username+"_ilms") in account_driver:
+            account_driver[username+"_ilms"].close()
         pass
         #driver = account_driver[username+"_eportfolio"]
-
+        account_driver[username+"_ilms"] = GetNewWebDriver()
         # 登入eportfolio
         #driver.get("https://system8.ntunhs.edu.tw/myNTUNHS_student/Modules/Main/Index_student.aspx?first=true")
         #driver.get("https://system8.ntunhs.edu.tw/myNTUNHS_student/Modules/Main/Index_student.aspx?first=true")
@@ -53,6 +53,8 @@ def view():
         driver.find_element_by_id("loginPasswd").send_keys(password)
         driver.find_element_by_xpath(u"//input[@value='確定']").click()
         
+        time.sleep(0.75)
+
         print("Login Finished : " + username)
         return "Login Finished : " + username,200
     except Exception as ex:
