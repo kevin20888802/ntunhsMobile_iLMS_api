@@ -47,7 +47,7 @@ app.register_blueprint(ilms_recentwork)
 
 if __name__ == "__main__":
     if local_test == True:
-        app.run(host='127.0.0.1',port=5001)
+        app.run(host='0.0.0.0',port=5001)
     else:
         app.run()
     pass
